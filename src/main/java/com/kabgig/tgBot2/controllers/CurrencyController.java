@@ -29,4 +29,10 @@ public class CurrencyController {
     public int getStatsAboutIncomesthatGreater(@RequestParam(value="amount")BigDecimal amount){
         return statsService.getCountOfIncomesThatGreater(amount);
     }
+
+    @GetMapping("/getStatsSpend")
+    @ApiOperation(value = "Получение количества трат, которые превышают определенную сумму")
+    public int getStatsAboutSpendingsThatGreater(@RequestParam(value="amount")BigDecimal amount){
+        return statsService.getCountOfSpendingsThatGreater(amount);
+    }
 }
