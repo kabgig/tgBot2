@@ -10,6 +10,7 @@ import com.kabgig.tgBot2.repository.IncomeRepository;
 import com.kabgig.tgBot2.repository.SpendRepository;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -27,12 +28,14 @@ public class FinanceService {
             Income income = new Income();
             income.setChatId(chatId);
             income.setIncome(new BigDecimal(price));
+            income.setCreationDate(LocalDateTime.now());
             incomeRepository.save(income);
             message = "Доход в размере " + price + " был успешно добавлен";
         } else {
             Spend spend = new Spend();
             spend.setChatId(chatId);
             spend.setSpend(new BigDecimal(price));
+            spend.setCreationDate(LocalDateTime.now());
             spendRepository.save(spend);
             message = "Расход в размере " + price + " был успешно добавлен";
         }

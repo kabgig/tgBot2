@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "INCOMES")
@@ -19,4 +21,7 @@ public class Income {
 
     @Column(name = "INCOME")
     private BigDecimal income;
+
+    @Column(name = "CREATIONDATE")
+    private LocalDateTime creationDate;
 }
