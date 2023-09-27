@@ -6,7 +6,6 @@ import com.kabgig.tgBot2.service.StatsService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,5 +33,11 @@ public class CurrencyController {
     @ApiOperation(value = "Получение количества трат, которые превышают определенную сумму")
     public int getStatsAboutSpendingsThatGreater(@RequestParam(value="amount")BigDecimal amount){
         return statsService.getCountOfSpendingsThatGreater(amount);
+    }
+
+    @GetMapping("/getIncomeSpend")
+    @ApiOperation(value = "Получение списка трат и доходов, которые превышают определенную сумму")
+    public List<Integer> getIncomeSpendList(@RequestParam(value="amount")BigDecimal amount){
+        return statsService.getFilteredIncomesAndSpendings(amount);
     }
 }

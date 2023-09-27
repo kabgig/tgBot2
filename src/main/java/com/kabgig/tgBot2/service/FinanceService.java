@@ -1,13 +1,11 @@
 package com.kabgig.tgBot2.service;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import org.springframework.stereotype.Service;
 import com.kabgig.tgBot2.entity.Income;
 import com.kabgig.tgBot2.entity.Spend;
 import com.kabgig.tgBot2.repository.IncomeRepository;
 import com.kabgig.tgBot2.repository.SpendRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

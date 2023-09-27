@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -16,5 +17,9 @@ public class StatsService {
 
     public int getCountOfSpendingsThatGreater(BigDecimal amount) {
         return statsRepository.getCountOfSpendingsThatGreaterThan(amount);
+    }
+
+    public List<Integer> getFilteredIncomesAndSpendings(BigDecimal amount){
+        return statsRepository.getIncomeSpendingList(amount);
     }
 }
