@@ -23,11 +23,11 @@ class StatsServiceTest {
     void getFilteredIncomesAndSpendings() {
         List<Integer> incomeSpendingList =
                 statsRepository.getIncomeSpendingList(new BigDecimal(20));
-        boolean isOK = true;
+        boolean isOkay = true;
         for(int i: incomeSpendingList){
-            if (i <= 20) isOK = false;
+            if (i <= 20) isOkay = false;
         }
-        Assert.assertTrue(isOK);
+        Assert.assertTrue(isOkay);
 
     }
 }
