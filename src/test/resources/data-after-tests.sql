@@ -1,0 +1,1 @@
+DELETE FROM spend WHERE id > 100000;

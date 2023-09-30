@@ -32,39 +32,14 @@ public class BotService extends TelegramLongPollingBot {
     private final ActiveChatRepository activeChatRepository;
     private final FinanceService financeService;
     private Map<Long, List<String>> previousCommands = new ConcurrentHashMap<>();
+//----
 
+    //------
     @Value("${bot.api.key}") //Сюда будет вставлено значение из application.properties, в котором будет указан api key, полученный от BotFather
     private String apiKey;
 
     @Value("${bot.name}") //Как будут звать нашего бота
     private String name;
-    
-    //Это основной метод, который связан с обработкой сообщений
-//    @Override
-//    public void onUpdateReceived(Update update) {
-//        Message message = update.getMessage();
-//        try {
-//            SendMessage response = new SendMessage();
-//            Long chatId = message.getChatId();
-//            response.setChatId(String.valueOf(chatId));
-//            if ("/currentrates".equalsIgnoreCase(message.getText())) {
-//                for (ValuteCursOnDate valuteCursOnDate : centralBankRussianService.getCurrenciesFromCbr()) {
-//                    response.setText(StringUtils.defaultIfBlank(response.getText(), "") + valuteCursOnDate.getName() + " - " + valuteCursOnDate.getCourse() + "\n");
-//                }
-//            }
-//            execute(response);
-////Проверяем, есть ли у нас такой chatId в базе, если нет, то добавляем, если есть, то пропускаем данный шаг
-//            if (activeChatRepository.findActiveChatByChatId(chatId).isEmpty()) {
-//                ActiveChat activeChat = new ActiveChat();
-//                activeChat.setChatId(chatId);
-//                activeChatRepository.save(activeChat);
-//            }
-//        } catch (TelegramApiException e) {
-//            e.printStackTrace();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     @Override
     public void onUpdateReceived(Update update) {
