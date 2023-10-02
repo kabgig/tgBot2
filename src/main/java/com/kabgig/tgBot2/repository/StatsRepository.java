@@ -59,5 +59,4 @@ public class StatsRepository {
             return rs.getInt("COUNT(*)");
         }
     }
-
 }
