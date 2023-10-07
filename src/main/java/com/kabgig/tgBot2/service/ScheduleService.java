@@ -1,16 +1,14 @@
 package com.kabgig.tgBot2.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 import com.kabgig.tgBot2.dto.ValuteCursOnDate;
 import com.kabgig.tgBot2.entity.ActiveChat;
 import com.kabgig.tgBot2.repository.ActiveChatRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;

@@ -1,15 +1,19 @@
 package com.kabgig.tgBot2.entity;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.security.Timestamp;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "INCOMES")
 @Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Income {
 
     @Id

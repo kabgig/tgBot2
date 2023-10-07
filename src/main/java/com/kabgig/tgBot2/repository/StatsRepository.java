@@ -1,6 +1,8 @@
 package com.kabgig.tgBot2.repository;
 
+import com.kabgig.tgBot2.entity.Income;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -8,15 +10,13 @@ import org.springframework.stereotype.Repository;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 @RequiredArgsConstructor
 public class StatsRepository {
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private final IncomeRepository incomeRepository;
 
     public int getCountOfIncomesThatGreaterThan(BigDecimal amount){
         Map<String, Object> parameters = new HashMap<>();
@@ -59,4 +59,15 @@ public class StatsRepository {
             return rs.getInt("COUNT(*)");
         }
     }
+
+    public Income getIncomeById(Long id) {
+        return incomeRepository.findById(id).get();
+    }
+
+    public Income addIncome(Income income){
+        return incomeRepository.save(income);
+    }
+
+
+
 }

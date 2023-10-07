@@ -4,9 +4,13 @@ import com.kabgig.tgBot2.repository.IncomeRepository;
 import com.kabgig.tgBot2.repository.StatsRepository;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.test.context.TestPropertySource;
 
 import java.math.BigDecimal;
@@ -14,14 +18,11 @@ import java.util.List;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application.properties")
-//@ActiveProfiles("test")
-//@Sql(scripts = "classpath:data-test.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-//@Sql(scripts = "classpath:data-after-tests.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 class StatsServiceTest {
+    private StatsRepository statsRepository;
 
-    private final StatsRepository statsRepository;
     @Autowired
-    StatsServiceTest(StatsRepository statsRepository, IncomeRepository incomeRepository) {
+    StatsServiceTest(StatsRepository statsRepository, IncomeRepository incomeRepository, NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.statsRepository = statsRepository;
     }
 
